@@ -1,0 +1,12 @@
+.element__place-reaction {
+    width: 22px;
+    height: 19px;
+    padding: 0;
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.element__place-reaction:hover {
+    opacity: 0.6;
+}
+

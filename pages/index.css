@@ -1,16 +1,29 @@
-/* Inter */ 
+/* Inter */
+
 @import url(../inter/inter.css);
-/* normalize.css */ 
+
+/* normalize.css */
+
 @import url(../vendor/normalize.css);
-/* body */ 
+
+/* body */
+
 @import url(../blocks/body/body.css);
-/* page */ 
+
+/* page */
+
 @import url(../blocks/page/page.css);
-/*header*/ 
+
+/*header*/
+
 @import url(../blocks/header/heades.css);
+
 /*logo*/
+
 @import url(../blocks/logo/logo.css);
-/*profile*/ 
+
+/*profile*/
+
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__content-column/profile__content-column.css);
@@ -19,21 +32,31 @@
 @import url(../blocks/profile/__edit-button/profile__edit-button.css);
 @import url(../blocks/profile/__about-me/profile__about-me.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
-/*elements*/ 
+
+/*elements*/
+
 @import url(../blocks/elements/elements.css);
+
 /*element*/
+
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__place/element__place.css);
 @import url(../blocks/element/__place-name/element__place-name.css);
 @import url(../blocks/element/__place-reaction/element__place-reaction.css);
 @import url(../blocks/element/__place-reaction/_active/element__place-reaction_active.css);
+
 /*cards*/
+
 @import url(../blocks/cards/cards.css);
+
 /* footer */
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
+
 /* popup */
+
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__opened/popup__opened.css);
 @import url(../blocks/popup/__container/popup__container.css);

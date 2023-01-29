@@ -10,6 +10,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    max-width: 294px;
 }
 
 
@@ -19,5 +20,6 @@
         line-height: 33px;
         text-align: center;
         margin: 0 10px 7px 46px;
+        max-width: 189px;
     }
 }

@@ -21,14 +21,12 @@ popupElement.addEventListener('submit', savePopup);
 
 const openPopup = function() {
     popupElement.classList.add('popup_opened');
-    console.log('Open popup clicked');
     popupName.value = profileName.textContent;
     popupAboutMe.value = profileAboutMe.textContent;
 }
 
 const closePopup = function() {
     popupElement.classList.remove('popup_opened');
-    console.log('Close popup clicked');
 }
 
 popupOpenButtonElement.addEventListener('click', openPopup);
@@ -40,13 +38,11 @@ const reactionElement = elements.querySelector('.element__place-reaction');
 
 const like = function() {
     reactionElement.classList.toggle('element__place-reaction_active');
-    console.log('Like');
 }
 
 
 const dislike = function() {
     reactionElement.classList.remove('element__place-reaction_active');
-    console.log('dislike');
 }
 
 reactionElement.addEventListener('click', like);

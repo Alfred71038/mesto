@@ -3,8 +3,6 @@ const popupCloseButtonElement = popupElement.querySelector('.popup__close-button
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const popupSaveButtonElement = popupElement.querySelector('.popup__save-button');
 
-// Редактирование профиля
-
 const profileElement = document.querySelector('.profile');
 let profileName = profileElement.querySelector('.profile__name');
 let profileAboutMe = profileElement.querySelector('.profile__about-me');
@@ -21,7 +19,6 @@ const savePopup = function (evt) {
 
 popupElement.addEventListener('submit', savePopup); 
 
-// Открытие и закрытие Popup 
 const openPopup = function() {
     popupElement.classList.add('popup_opened');
     console.log('Open popup clicked');
@@ -38,8 +35,6 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
 
 
-
-//  LIke
 const elements = document.querySelector('.elements');
 const reactionElement = elements.querySelector('.element__place-reaction');
 

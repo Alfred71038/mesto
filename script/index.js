@@ -8,8 +8,8 @@ const popupSaveButtonElement = popupElement.querySelector('.popup__save-button')
 const profileElement = document.querySelector('.profile');
 let profileName = profileElement.querySelector('.profile__name');
 let profileAboutMe = profileElement.querySelector('.profile__about-me');
-let popupName = popupElement.querySelector('.popup__name');
-let popupAboutMe = popupElement.querySelector('.popup__about-me');
+let popupName = popupElement.querySelector('.popup__input_type_name');
+let popupAboutMe = popupElement.querySelector('.popup__input_type_about-me');
 let popupContainer = popupElement.querySelector('.popup__container')
 
 const savePopup = function (evt) {
@@ -23,14 +23,14 @@ popupElement.addEventListener('submit', savePopup);
 
 // Открытие и закрытие Popup 
 const openPopup = function() {
-    popupElement.classList.add('popup__opened');
+    popupElement.classList.add('popup_opened');
     console.log('Open popup clicked');
     popupName.value = profileName.textContent;
     popupAboutMe.value = profileAboutMe.textContent;
 }
 
 const closePopup = function() {
-    popupElement.classList.remove('popup__opened');
+    popupElement.classList.remove('popup_opened');
     console.log('Close popup clicked');
 }
 

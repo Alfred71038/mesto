@@ -6,6 +6,7 @@
     width: 150px;
     height: 50px;
     margin-top: 35px;
+    cursor: pointer;
 }
 
 .profile__add-button:hover {

@@ -7,17 +7,13 @@
     color: #000000;
     max-width: 330px;
     margin-top: 34px;
-    margin-bottom: 54px;
+    margin-bottom: 50px;
 }
 
 @media screen and (max-width: 900px) {
     .popup__title {
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 900;
         font-size: 18px;
         line-height: 22px;
-        color: #000000;
         min-width: 238px;
         margin: 25px auto 75px;
     }

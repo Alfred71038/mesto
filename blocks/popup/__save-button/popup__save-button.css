@@ -11,9 +11,10 @@
     color: #FFFFFF;
     border: none;
     padding: 0;
-    padding-top: 14px;
-    padding-bottom: 18px;
+    padding-top: 16px;
+    padding-bottom: 12px;
     margin-bottom: 38px;
+    cursor: pointer;
 }
 
 .popup__save-button:hover {
@@ -24,5 +25,7 @@
     .popup__save-button {
         max-width: 238px;
         margin: 0 22px 25px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

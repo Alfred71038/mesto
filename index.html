@@ -29,48 +29,6 @@
 
             <section class="elements">
                 <ul class="cards">
-                    <li class="element">
-                        <img src="./images/Karachaevsk.jpg" alt="Карачаевск" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Карачаевск</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Гора Эльбрус</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img src="./images/Dombai.jpg" alt="Домбай" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Домбай</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img src="./images/Akkem-Lake.jpg" alt=" Аккемское озеро" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Аккемское озеро</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img src="./images/Baikal.jpg" alt="Байкал" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Байкал</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
-                    <li class="element">
-                        <img src="./images/Manpupuner.jpg" alt="Маньпупунер" class="element__image">
-                        <div class="element__place">
-                            <h2 class="element__place-name">Маньпупунер</h2>
-                            <button class="element__place-reaction" type="button"><img src="./images/Like.svg" alt="лайк"></button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -89,7 +47,52 @@
                 </form>
             </div>
         </section>
+        <section class="popup popup__photo">
+            <div class="popup__container">
+                <button 
+                class="popup__photo-close-button" 
+                type="button">
+                <img src="./images/Close-Icon.svg" 
+                class="popup__button-image" 
+                alt="Крестик">
+                </button>
+                <form class="popup__content popup_photo-content" name="profile-form">
+                    <h2 class="popup__title">Новое Место</h2>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Название" 
+                    class="popup__input popup__photo_input_type_name">
+                    <input 
+                    type="url"
+                    name="cards-link" 
+                    placeholder="Ссылка на картинку" 
+                    class="popup__input popup__photo_input_type_cards_link">
+                    <button 
+                    type="submit" 
+                    class="popup__add-button">
+                    Создать</button>
+                </form>
+            </div>
+        </section>
     </div>
+    <template id="elements-item-template">
+        <li class="element">
+            <img class="element__image" alt="" src="">
+            <div class="element__place">
+                <h2 class="element__place-name"></h2>
+                <button 
+                class="element__place-reaction" 
+                type="button">
+                <img src="./images/Like.svg" alt="лайк">
+                </button>
+            </div>
+            <button 
+            class="element__delete-button" 
+            type="button">
+            </button>
+        </li>
+    </template>
     <script src="./script/index.js"></script>
 </body>
 </html>

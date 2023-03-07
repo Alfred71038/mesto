@@ -48,6 +48,7 @@
 @import url(../blocks/element/__place-name/element__place-name.css);
 @import url(../blocks/element/__place-reaction/element__place-reaction.css);
 @import url(../blocks/element/__place-reaction/_active/element__place-reaction_active.css);
+@import url(../blocks/element/__delete-button/element__delete-button.css);
 
 /*cards*/
 
@@ -64,8 +65,10 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__photo-close-button/popup__photo-close-button.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__button-image/popup__button-image.css);
+@import url(../blocks/popup/__add-button/popup__add-button.css);

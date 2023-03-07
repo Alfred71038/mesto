@@ -5,6 +5,7 @@
     border: none;
     background-color: #FFFFFF;
     cursor: pointer;
+    background-image: url(../../../images/Like.svg);
 }
 
 .element__place-reaction:hover {

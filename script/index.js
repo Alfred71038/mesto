@@ -51,19 +51,19 @@ popupCloseButtonElement.addEventListener('click', closePopupSave);
 
 // Открытие попапа с картинками
 
-const popupPhotoElement = document.querySelector('.popup__photo');
+const popupPhotoElement = document.querySelector('.popup_photo');
 const popupPhotoCloseButtonElement = popupPhotoElement.querySelector('.popup__photo-close-button');
 const popupAddButtonElement = document.querySelector('.profile__add-button');
-const popupPhotoContent = popupPhotoElement.querySelector('.popup_photo-content');
+const popupPhotoContent = popupPhotoElement.querySelector('.popup__photo_content');
 const cards = document.querySelector('.cards');
 const template = document.querySelector('#elements-item-template');
-const popupZoomImage = document.querySelector('.popup__zoom-image');
+const popupZoomImage = document.querySelector('.popup_zoom-image');
 const popupImage = popupZoomImage.querySelector('.popup__image');
 const popupSignature = popupZoomImage.querySelector('.popup__signature');
 const popupImageCloseButtonElement = popupZoomImage.querySelector('.popup__image-close-button');
 
-let popupPhotoName = popupPhotoElement.querySelector('.popup__photo_input_type_name');
-let popupPhotoCardsLink = popupPhotoElement.querySelector('.popup__photo_input_type_cards_link');
+let popupPhotoName = popupPhotoElement.querySelector('.popup__input_photo_type_name');
+let popupPhotoCardsLink = popupPhotoElement.querySelector('.popup__input_photo_type_link');
 
 
 

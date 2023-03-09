@@ -36,7 +36,7 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
         </footer>
-        <section class="popup" id="save">
+        <section class="popup" id="profile">
             <div class="popup__container">
                 <button 
                     class="popup__close-button" 
@@ -45,35 +45,46 @@
                     class="popup__button-image" 
                     alt="Крестик">
                 </button>
-                <form class="popup__content" name="profile-form">
+                <form class="popup__content" id="profile-content" name="profile-form">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" name="name" class="popup__input popup__input_type_name">
-                    <input type="text" name="about-me" class="popup__input popup__input_type_about-me">
-                    <button type="submit" class="popup__save-button">Сохранить</button>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    placeholder="Имя" 
+                    class="popup__input popup__input_type_name">
+                    <input 
+                    type="text" 
+                    name="about-me" 
+                    placeholder="О себе" 
+                    class="popup__input popup__input_type_about-me">
+                    <button 
+                    type="submit" 
+                    class="popup__save-button">
+                    Сохранить</button>
                 </form>
             </div>
         </section>
-        <section class="popup popup_photo" id="photo">
+        <section class="popup" id="card">
             <div class="popup__container">
                 <button 
-                class="popup__photo-close-button" 
+                class="popup__close-button" 
                 type="button">
                 <img src="./images/Close-Icon.svg" 
                 class="popup__button-image" 
                 alt="Крестик">
                 </button>
-                <form class="popup__content popup__content_photo" name="profile-form">
+                <form class="popup__content" id="card-content" name="profile-form">
                     <h2 class="popup__title">Новое Место</h2>
                     <input 
                     type="text" 
                     name="name" 
                     placeholder="Название" 
-                    class="popup__input popup__input_photo-type-name">
+                    class="popup__input popup__input_card-type-name">
                     <input 
                     type="url"
                     name="cards-link" 
                     placeholder="Ссылка на картинку" 
-                    class="popup__input popup__input_photo-type-link">
+                    class="popup__input popup__input_card-type-link">
                     <button 
                     type="submit" 
                     class="popup__add-button">
@@ -84,7 +95,7 @@
         <section class="popup popup_zoom-image" id="image">
             <div class="popup__container popup__container_image">
                 <button 
-                class="popup__image-close-button" 
+                class="popup__close-button" 
                 type="button">
                 <img src="./images/Close-Icon.svg" 
                 class="popup__button-image" 
@@ -112,6 +123,7 @@
             </button>
         </li>
     </template>
+    <script src="./script/cards.js"></script>
     <script src="./script/index.js"></script>
 </body>
 </html>

@@ -65,14 +65,13 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
-@import url(../blocks/popup/__photo-close-button/popup__photo-close-button.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
 @import url(../blocks/popup/__button-image/popup__button-image.css);
 @import url(../blocks/popup/__add-button/popup__add-button.css);
-@import url(../blocks/popup/__image-close-button/popup__image-close-button.css);
 @import url(../blocks/popup/__container/_image/popup__container_image.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__signature/popup__signature.css);
+@import url(../blocks/popup/_zoom-image/popup_zoom-image.css);

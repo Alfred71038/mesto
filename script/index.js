@@ -1,120 +1,94 @@
-const popupElement = document.querySelector('.popup');
-const save = document.querySelector('#save');
-const photo = document.querySelector('#photo');
-const image = document.querySelector('#image');
-const popupCloseButtonElement = popupElement.querySelector('.popup__close-button');
+//Поп_апы
+const profilePopup = document.querySelector('#profile');
+const cardPopup = document.querySelector('#card');
+const imagePopup = document.querySelector('#image');
+
+const popup = document.querySelector('.popup');
+const popupCloseButton = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-const popupSaveButtonElement = popupElement.querySelector('.popup__save-button');
-
+const popupSaveButtonElement = profilePopup.querySelector('.popup__save-button');
+const contentPopup = document.querySelector('.popup__content');
+const profileContentElement = document.querySelector('#profile-content');
 const profileElement = document.querySelector('.profile');
-let profileName = profileElement.querySelector('.profile__name');
-let profileAboutMe = profileElement.querySelector('.profile__about-me');
-let popupName = popupElement.querySelector('.popup__input_type_name');
-let popupAboutMe = popupElement.querySelector('.popup__input_type_about-me');
-let popupContainer = popupElement.querySelector('.popup__container');
+const profileName = profileElement.querySelector('.profile__name');
+const profileAboutMe = profileElement.querySelector('.profile__about-me');
+const popupName = profilePopup.querySelector('.popup__input_type_name');
+const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');
+const popupContainer = profilePopup.querySelector('.popup__container');
 
-//сохранение изменений 
-const savePopup = function (evt) {
-    evt.preventDefault();
-    profileName.textContent = popupName.value;
-    profileAboutMe.textContent = popupAboutMe.value;
-    closePopup(save);
-}
-
-popupElement.addEventListener('submit', savePopup); 
 
 //Открытие поп_апа
-const openPopup = (popupElement) => {
-  popupElement.classList.add('popup_opened');
+const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
 }
 
-const openPopupSave = () => {
-    popupName.value = profileName.textContent;
-    popupAboutMe.value = profileAboutMe.textContent;
-    openPopup(save);
-}
-
-popupOpenButtonElement.addEventListener('click', openPopupSave);
 
 //Закрытие поп_апа
-const closePopup = (popupElement) => {
-  popupElement
+const closePopup = (popup) => {
+  popup
   .classList
   .remove('popup_opened');
 }
 
-const closePopupSave = () => {
-  closePopup(save);
+//Открытие поп_апа с профилем
+const openPopupProfile = () => {
+  popupName.value = profileName.textContent;
+  popupAboutMe.value = profileAboutMe.textContent;
+  openPopup(profilePopup);
 }
 
-popupCloseButtonElement.addEventListener('click', closePopupSave);
+popupOpenButtonElement.addEventListener('click', openPopupProfile);
 
-// Открытие попапа с картинками
+//Закрытие поп_апа с профилем
 
-const popupPhotoElement = document.querySelector('.popup_photo');
-const popupPhotoCloseButtonElement = popupPhotoElement.querySelector('.popup__photo-close-button');
+popupCloseButton.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
+
+//сохранение изменений 
+function profileEditPopup (evt) {
+  evt.preventDefault();
+  profileName.textContent = popupName.value;
+  profileAboutMe.textContent = popupAboutMe.value;
+  closePopup(profilePopup);
+}
+
+profileContentElement.addEventListener('submit', profileEditPopup); 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
 const popupAddButtonElement = document.querySelector('.profile__add-button');
-const popupPhotoContent = popupPhotoElement.querySelector('.popup__content_photo');
-const cards = document.querySelector('.cards');
+const cardContentElement = document.querySelector('#card-content');
+const cardsContainer = document.querySelector('.cards');
 const template = document.querySelector('#elements-item-template');
 const popupZoomImage = document.querySelector('.popup_zoom-image');
 const popupImage = popupZoomImage.querySelector('.popup__image');
 const popupSignature = popupZoomImage.querySelector('.popup__signature');
-const popupImageCloseButtonElement = popupZoomImage.querySelector('.popup__image-close-button');
 
-let popupPhotoName = popupPhotoElement.querySelector('.popup__input_photo-type-name');
-let popupPhotoCardsLink = popupPhotoElement.querySelector('.popup__input_photo-type-link');
-
-
-
- const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    },
-  ];
+const popupCardName = cardPopup.querySelector('.popup__input_card-type-name');
+const popupCardLink = cardPopup.querySelector('.popup__input_card-type-link');
 
 //сейв для попапа с картинками
 
-const openPopupPhoto = () => {
-    openPopup(photo);
+const openCardPopup = () => {
+    openPopup(cardPopup);
 }
 
-const closePopupPhoto = () => {
-    closePopup(photo);
+const closeCardPopup = () => {
+    closePopup(cardPopup);
 }
 
-popupAddButtonElement.addEventListener('click', openPopupPhoto);
-popupPhotoCloseButtonElement.addEventListener('click', closePopupPhoto);
+popupAddButtonElement.addEventListener('click', openCardPopup);
 
-popupPhotoContent.addEventListener('submit', (evt) => {
+cardContentElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   let addNewCard = {
-    name: popupPhotoName.value,
-    link: popupPhotoCardsLink.value
+    name: popupCardName.value,
+    link: popupCardLink.value
   };
   renderCardsElement(addNewCard);
-  closePopupPhoto();
+  closeCardPopup();
+  evt.target.reset();
 });
 
  
@@ -141,28 +115,22 @@ function createCard (addNewCard)  {
     popupImage.alt = addNewCard.name;
     popupImage.src = addNewCard.link;
     popupSignature.textContent = addNewCard.name;
-    openPopupImage()
+    openImagePopup()
     });
 
   return cardsElement;
 }
 
-const openPopupImage = () => {
-  openPopup(image);
+const openImagePopup = () => {
+  openPopup(imagePopup);
 }
-
-const closePopupImage = () => {
-  closePopup(image);
-}
-
-popupImageCloseButtonElement.addEventListener('click', closePopupImage)
 
 initialCards.forEach((addNewCard) => {
   createCard(addNewCard);
 });
 
 const renderCardsElement = (addNewCard) => {
-  cards.append(createCard(addNewCard));
+  cardsContainer.prepend(createCard(addNewCard));
 }
 
 initialCards.forEach((addNewCard) => {

@@ -3,18 +3,14 @@ const profilePopup = document.querySelector('#profile');
 const cardPopup = document.querySelector('#card');
 const imagePopup = document.querySelector('#image');
 
-const popup = document.querySelector('.popup');
-const popupCloseButton = document.querySelectorAll('.popup__close-button');
+const popupCloseButtonList = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-const popupSaveButtonElement = profilePopup.querySelector('.popup__save-button');
-const contentPopup = document.querySelector('.popup__content');
-const profileContentElement = document.querySelector('#profile-content');
+const profileFormElement = document.querySelector('#profile-form');
 const profileElement = document.querySelector('.profile');
 const profileName = profileElement.querySelector('.profile__name');
 const profileAboutMe = profileElement.querySelector('.profile__about-me');
 const popupName = profilePopup.querySelector('.popup__input_type_name');
 const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');
-const popupContainer = profilePopup.querySelector('.popup__container');
 
 
 //Открытие поп_апа
@@ -41,7 +37,7 @@ popupOpenButtonElement.addEventListener('click', openPopupProfile);
 
 //Закрытие поп_апа с профилем
 
-popupCloseButton.forEach((button) => {
+popupCloseButtonList.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
@@ -54,11 +50,11 @@ function profileEditPopup (evt) {
   closePopup(profilePopup);
 }
 
-profileContentElement.addEventListener('submit', profileEditPopup); 
+profileFormElement.addEventListener('submit', profileEditPopup); 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 const popupAddButtonElement = document.querySelector('.profile__add-button');
-const cardContentElement = document.querySelector('#card-content');
+const cardFormElement = document.querySelector('#card-form');
 const cardsContainer = document.querySelector('.cards');
 const template = document.querySelector('#elements-item-template');
 const popupZoomImage = document.querySelector('.popup_zoom-image');
@@ -80,9 +76,9 @@ const closeCardPopup = () => {
 
 popupAddButtonElement.addEventListener('click', openCardPopup);
 
-cardContentElement.addEventListener('submit', (evt) => {
+cardFormElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  let addNewCard = {
+  const addNewCard = {
     name: popupCardName.value,
     link: popupCardLink.value
   };

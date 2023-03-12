@@ -19,12 +19,12 @@ const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');
 //Открытие поп_апа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', (evt) => {
+  document.addEventListener('keydown', escapeClick = (evt) => {
     if (evt.key === 'Escape') {
-      popup.classList.remove('popup_opened');
+      closePopup(popup);
     }
   });
-  popup.addEventListener('click', (evt) => {
+  popup.addEventListener('click', mouseClick = (evt) => {
         if (evt.target === evt.currentTarget) {
             closePopup(popup);
     };
@@ -37,22 +37,6 @@ const closePopup = (popup) => {
   .classList
   .remove('popup_opened');
 }
-
-/*function resetFormValidation(popup) {
-  if (profilePopup.classList.contains('popup_opened') || cardPopup.classList.contains('popup_opened')) {
-    
-    const profileFormInput = Array.from(document.querySelectorAll('.popup__input'));
-    const profileInputError = Array.from(document.querySelectorAll('.popup__input-error'));
-
-    profileFormInput.forEach((input) => {
-      input.classList.remove('popup__form_input_type_error');
-    });
-
-    profileInputError.forEach((error) => {
-      error.textContent = '';
-    });
-  };
-};*/
 
 //Открытие поп_апа с профилем
 const openPopupProfile = () => {
@@ -70,14 +54,14 @@ popupCloseButtonList.forEach((button) => {
 });
 
 //сохранение изменений 
-function profileEditPopup (evt) {
+function submitEditProfilePopup (evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileAboutMe.textContent = popupAboutMe.value;
   closePopup(profilePopup);
 }
 
-profileFormElement.addEventListener('submit', profileEditPopup); 
+profileFormElement.addEventListener('submit', submitEditProfilePopup); 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 const popupAddButtonElement = document.querySelector('.profile__add-button');

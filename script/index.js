@@ -16,8 +16,17 @@ const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');
 //Открытие поп_апа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-}
-
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      popup.classList.remove('popup_opened');
+    }
+  });
+  popup.addEventListener('click', (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(popup);
+    };
+});
+};
 
 //Закрытие поп_апа
 const closePopup = (popup) => {
@@ -30,9 +39,10 @@ const closePopup = (popup) => {
 const openPopupProfile = () => {
   popupName.value = profileName.textContent;
   popupAboutMe.value = profileAboutMe.textContent;
+  profileFormElement.reset;
   openPopup(profilePopup);
+  
 }
-
 popupOpenButtonElement.addEventListener('click', openPopupProfile);
 
 //Закрытие поп_апа с профилем
@@ -61,12 +71,14 @@ const popupZoomImage = document.querySelector('.popup_zoom-image');
 const popupImage = popupZoomImage.querySelector('.popup__image');
 const popupSignature = popupZoomImage.querySelector('.popup__signature');
 
-const popupCardName = cardPopup.querySelector('.popup__input_card-type-name');
+const popupCardTitle = cardPopup.querySelector('.popup__input_card-type-title');
 const popupCardLink = cardPopup.querySelector('.popup__input_card-type-link');
 
 //сейв для попапа с картинками
 
 const openCardPopup = () => {
+    popupCardTitle.value = '';
+    popupCardLink.value = '';
     openPopup(cardPopup);
 }
 
@@ -79,7 +91,7 @@ popupAddButtonElement.addEventListener('click', openCardPopup);
 cardFormElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const addNewCard = {
-    name: popupCardName.value,
+    name: popupCardTitle.value,
     link: popupCardLink.value
   };
   renderCardsElement(addNewCard);
@@ -132,6 +144,4 @@ const renderCardsElement = (addNewCard) => {
 initialCards.forEach((addNewCard) => {
   renderCardsElement(addNewCard);
 });
-
-
 

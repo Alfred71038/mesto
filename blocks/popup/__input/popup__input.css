@@ -1,5 +1,5 @@
 .popup__input {
-    max-width: 358px;
+    width: 358px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -10,17 +10,12 @@
     padding-bottom: 8px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 0;
-    margin-bottom: 30px;
+    margin-bottom: 2px;
 }
 
-.popup__input:last-of-type {
-    margin-bottom: 46px;
-}
 
 @media screen and (max-width: 900px) {
     .popup__input {
         max-width: 238px;
-        margin: 0 22px 30px;
     }
 }

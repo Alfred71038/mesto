@@ -45,21 +45,35 @@
                     class="popup__button-image" 
                     alt="Крестик">
                 </button>
-                <form class="popup__form" id="profile-form" name="profile-form">
+                <form class="popup__form" id="profile-form" name="profile-form" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Имя" 
-                    class="popup__input popup__input_type_name">
-                    <input 
-                    type="text" 
-                    name="about-me" 
-                    placeholder="О себе" 
-                    class="popup__input popup__input_type_about-me">
+                    <div class="popup__form-section">
+                        <input 
+                        id="name-input"
+                        type="text" 
+                        name="name" 
+                        placeholder="Имя" 
+                        class="popup__input popup__input_type_name"
+                        minlength="2"
+                        maxlength="40"
+                        required>
+                        <span class="popup__input-error name-input-error"></span>
+                    </div>
+                    <div class="popup__form-section">
+                        <input 
+                        id="about-me-input"
+                        type="text" 
+                        name="about-me" 
+                        placeholder="О себе" 
+                        class="popup__input popup__input_type_about-me"
+                        minlength="2"
+                        maxlength="200"
+                        required>
+                        <span class="about-me-input-error popup__input-error"></span>
+                    </div>
                     <button 
                     type="submit" 
-                    class="popup__save-button">
+                    class="popup__button">
                     Сохранить</button>
                 </form>
             </div>
@@ -73,21 +87,33 @@
                 class="popup__button-image" 
                 alt="Крестик">
                 </button>
-                <form class="popup__form" id="card-form" name="card-form">
+                <form class="popup__form" id="card-form" name="card-form" novalidate>
                     <h2 class="popup__title">Новое Место</h2>
-                    <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Название" 
-                    class="popup__input popup__input_card-type-name">
-                    <input 
-                    type="url"
-                    name="cards-link" 
-                    placeholder="Ссылка на картинку" 
-                    class="popup__input popup__input_card-type-link">
+                    <div class="popup__form-section">
+                        <input 
+                        id="title-input"
+                        type="text" 
+                        name="title" 
+                        placeholder="Название" 
+                        class="popup__input popup__input_card-type-title"
+                        minlength="2"
+                        maxlength="30"
+                        required>
+                        <span class="title-input-error popup__input-error"></span>
+                    </div>
+                    <div class="popup__form-section">
+                        <input 
+                        id="link-input"
+                        type="url"
+                        name="cards-link" 
+                        placeholder="Ссылка на картинку" 
+                        class="popup__input popup__input_card-type-link"
+                        required>
+                        <span class="link-input-error popup__input-error"></span>
+                    </div>
                     <button 
                     type="submit" 
-                    class="popup__add-button">
+                    class="popup__button">
                     Создать</button>
                 </form>
             </div>
@@ -124,6 +150,7 @@
         </li>
     </template>
     <script src="./script/cards.js"></script>
+    <script src="./script/validate.js"></script>
     <script src="./script/index.js"></script>
 </body>
 </html>

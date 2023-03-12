@@ -36,6 +36,7 @@ const closePopup = (popup) => {
   popup
   .classList
   .remove('popup_opened');
+  popup.removeEventListener('click', escapeClick, mouseClick);
 }
 
 //Открытие поп_апа с профилем

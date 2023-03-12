@@ -13,11 +13,11 @@ const showInputError = (popupForm, FormInput, errorMessage, ValidationConfig) =>
     errorElement.textContent = errorMessage;
     errorElement.classList.add(ValidationConfig.popupSpanErrorActive);
   };
-  const hideInputError = (popupForm, FormInput, ValidationConfig,) => {
+  const hideInputError = (popupForm, FormInput, ValidationConfig) => {
     const errorElement = popupForm.querySelector(`.${FormInput.id}-error`);
     FormInput.classList.remove(ValidationConfig.popupInputTypeError);
-    errorElement.classList.remove(ValidationConfig.popupSpanErrorActive);
     errorElement.textContent = '';
+    errorElement.classList.remove(ValidationConfig.popupSpanErrorActive);
   };
   
   const isValid = (popupForm, FormInput, ValidationConfig) => {
@@ -28,6 +28,14 @@ const showInputError = (popupForm, FormInput, errorMessage, ValidationConfig) =>
     }
   };
   
+  const switchButton = (FormInputList, Button, ValidationConfig) => {
+    if (inputInvalid(FormInputList)) {
+      Button.classList.add(ValidationConfig.popupButtonInactive);
+    } else {
+      Button.classList.remove(ValidationConfig.popupButtonInactive);
+    };
+  };
+
   const setEventListeners = (popupForm, ValidationConfig) => {
     const FormInputList = Array.from(popupForm.querySelectorAll(ValidationConfig.FormInput));
     const Button = popupForm.querySelector(ValidationConfig.popupButton);
@@ -45,15 +53,6 @@ const showInputError = (popupForm, FormInput, errorMessage, ValidationConfig) =>
       return !FormInput.validity.valid;
     })
   };
-
-  const switchButton = (FormInputList, Button, ValidationConfig) => {
-    if (inputInvalid(FormInputList)) {
-      Button.classList.add(ValidationConfig.popupButtonInactive);
-    } else {
-      Button.classList.remove(ValidationConfig.popupButtonInactive);
-    };
-  };
-
   const enableValidation = (ValidationConfig) => {
     const FormElementList = Array.from(document.querySelectorAll(ValidationConfig.popupForm));
       FormElementList.forEach((popupForm) => {
@@ -64,7 +63,7 @@ const showInputError = (popupForm, FormInput, errorMessage, ValidationConfig) =>
     });
   };
 
- /* const resetForm = () => {
+ /*const resetForm = () => {
     switchButton();
     FormInputList.forEach((FormInput) => {
       hideInputError(FormInput);

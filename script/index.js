@@ -6,6 +6,9 @@ const imagePopup = document.querySelector('#image');
 const popupCloseButtonList = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const profileFormElement = document.querySelector('#profile-form');
+const profileFormInput = document.querySelectorAll('.popup__input')
+const popupInputTypeError = document.querySelector ('popup__form_input_type_error')
+const popupSpanErrorActive = document.querySelector ('popup__form_input-error-active')
 const profileElement = document.querySelector('.profile');
 const profileName = profileElement.querySelector('.profile__name');
 const profileAboutMe = profileElement.querySelector('.profile__about-me');
@@ -35,13 +38,27 @@ const closePopup = (popup) => {
   .remove('popup_opened');
 }
 
+/*function resetFormValidation(popup) {
+  if (profilePopup.classList.contains('popup_opened') || cardPopup.classList.contains('popup_opened')) {
+    
+    const profileFormInput = Array.from(document.querySelectorAll('.popup__input'));
+    const profileInputError = Array.from(document.querySelectorAll('.popup__input-error'));
+
+    profileFormInput.forEach((input) => {
+      input.classList.remove('popup__form_input_type_error');
+    });
+
+    profileInputError.forEach((error) => {
+      error.textContent = '';
+    });
+  };
+};*/
+
 //Открытие поп_апа с профилем
 const openPopupProfile = () => {
   popupName.value = profileName.textContent;
   popupAboutMe.value = profileAboutMe.textContent;
-  profileFormElement.reset;
-  openPopup(profilePopup);
-  
+  openPopup(profilePopup);  
 }
 popupOpenButtonElement.addEventListener('click', openPopupProfile);
 

@@ -37,46 +37,48 @@
             <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
         </footer>
         <section class="popup" id="profile">
-            <div class="popup__container">
-                <button 
-                    class="popup__close-button" 
-                    type="button">
-                    <img src="./images/Close-Icon.svg" 
-                    class="popup__button-image" 
-                    alt="Крестик">
-                </button>
-                <form class="popup__form" id="profile-form" name="profile-form" novalidate>
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <div class="popup__form-section">
-                        <input 
-                        id="name-input"
-                        type="text" 
-                        name="name" 
-                        placeholder="Имя" 
-                        class="popup__input popup__input_type_name"
-                        minlength="2"
-                        maxlength="40"
-                        required>
-                        <span class="popup__input-error name-input-error"></span>
-                    </div>
-                    <div class="popup__form-section">
-                        <input 
-                        id="about-me-input"
-                        type="text" 
-                        name="about-me" 
-                        placeholder="О себе" 
-                        class="popup__input popup__input_type_about-me"
-                        minlength="2"
-                        maxlength="200"
-                        required>
-                        <span class="about-me-input-error popup__input-error"></span>
-                    </div>
+            
+                <div class="popup__container">
                     <button 
-                    type="submit" 
-                    class="popup__button">
-                    Сохранить</button>
-                </form>
-            </div>
+                        class="popup__close-button" 
+                        type="button">
+                        <img src="./images/Close-Icon.svg" 
+                        class="popup__button-image" 
+                        alt="Крестик">
+                    </button>
+                    <form class="popup__form" id="profile-form" name="profile-form" novalidate>
+                        <h2 class="popup__title">Редактировать профиль</h2>
+                        <div class="popup__form-section">
+                            <input 
+                            id="name-input"
+                          type="text" 
+                          name="name" 
+                          placeholder="Имя" 
+                          class="popup__input popup__input_type_name"
+                          minlength="2"
+                          maxlength="40"
+                          required>
+                          <span class="popup__input-error name-input-error"></span>
+                      </div>
+                      <div class="popup__form-section">
+                          <input 
+                          id="about-me-input"
+                          type="text" 
+                          name="about-me" 
+                          placeholder="О себе" 
+                          class="popup__input popup__input_type_about-me"
+                          minlength="2"
+                          maxlength="200"
+                          required>
+                          <span class="about-me-input-error popup__input-error"></span>
+                      </div>
+                      <button 
+                      type="submit" 
+                      class="popup__button">
+                      Сохранить</button>
+                  </form>
+                </div>
+          
         </section>
         <section class="popup" id="card">
             <div class="popup__container">

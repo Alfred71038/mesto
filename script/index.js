@@ -70,6 +70,7 @@ const cardFormElement = document.querySelector('#card-form');
 const cardsContainer = document.querySelector('.cards');
 const template = document.querySelector('#elements-item-template');
 const popupZoomImage = document.querySelector('.popup_zoom-image');
+const popupButtonCardCreate = document.querySelector('.popup__button_card_create')
 const popupImage = popupZoomImage.querySelector('.popup__image');
 const popupSignature = popupZoomImage.querySelector('.popup__signature');
 
@@ -99,6 +100,8 @@ cardFormElement.addEventListener('submit', (evt) => {
   renderCardsElement(addNewCard);
   closeCardPopup();
   evt.target.reset();
+  popupButtonCardCreate.setAttribute('disabled', true);
+  popupButtonCardCreate.classList.add('popup__button_inactive')
 });
 
  

@@ -10,7 +10,7 @@ const validationList = ({
 const showInputError = (popupForm, formInput, errorMessage, validationConfig) => {
     const errorElement = popupForm.querySelector(`.${formInput.id}-error`);
     formInput.classList.add(validationConfig.popupInputTypeError);
-    errorElement.textContent = errorMessage;
+    errorElement.textContent = formInput.validationMessage;
     errorElement.classList.add(validationConfig.popupSpanErrorActive);
   };
   const hideInputError = (popupForm, formInput, validationConfig) => {
@@ -30,13 +30,21 @@ const showInputError = (popupForm, formInput, errorMessage, validationConfig) =>
   
   const switchButton = (formInputList, buttonElement, validationConfig) => {
     if (inputInvalid(formInputList)) {
-      buttonElement.classList.add(validationConfig.popupButtonInactive);
-      buttonElement.setAttribute('disabled', true);
+      disableButton(validationConfig, buttonElement);
     } else {
-      buttonElement.classList.remove(validationConfig.popupButtonInactive);
-      buttonElement.removeAttribute('disabled', false);
+      activeButton(validationConfig, buttonElement);
     };
   };
+
+  const disableButton = (validationConfig, buttonElement) => {
+    buttonElement.setAttribute('disabled', true);
+    buttonElement.classList.add(validationConfig.popupButtonInactive);
+  }
+  const activeButton = (validationConfig, buttonElement) => {
+    buttonElement.removeAttribute('disabled', false);
+    buttonElement.classList.remove(validationConfig.popupButtonInactive);
+  }
+
 
   const setEventListeners = (popupForm, validationConfig) => {
     const formInputList = Array.from(popupForm.querySelectorAll(validationConfig.formInput));
@@ -64,13 +72,5 @@ const showInputError = (popupForm, formInput, errorMessage, validationConfig) =>
         setEventListeners(popupForm, validationConfig)
     });
   };
-
- /*const resetForm = () => {
-    switchButton();
-    FormInputList.forEach((FormInput) => {
-      hideInputError(FormInput);
-    });
-  };*/
-
 
   enableValidation(validationList);

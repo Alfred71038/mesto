@@ -2,41 +2,47 @@
 const profilePopup = document.querySelector('#profile');
 const cardPopup = document.querySelector('#card');
 const imagePopup = document.querySelector('#image');
-
+const popups = document.querySelectorAll('.popup');
 const popupCloseButtonList = document.querySelectorAll('.popup__close-button');
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 const profileFormElement = document.querySelector('#profile-form');
 const profileFormInput = document.querySelectorAll('.popup__input')
-const popupInputTypeError = document.querySelector ('popup__form_input_type_error')
-const popupSpanErrorActive = document.querySelector ('popup__form_input-error-active')
 const profileElement = document.querySelector('.profile');
 const profileName = profileElement.querySelector('.profile__name');
 const profileAboutMe = profileElement.querySelector('.profile__about-me');
 const popupName = profilePopup.querySelector('.popup__input_type_name');
 const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');
+const popupButtonProfileSubmit = document.querySelectorAll('.popup__button_profile_submit')
+
 
 
 //Открытие поп_апа
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', escapeClick = (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  });
-  popup.addEventListener('click', mouseClick = (evt) => {
-        if (evt.target === evt.currentTarget) {
-            closePopup(popup);
-    };
-});
+  document.addEventListener('keydown', closePopupByEsc)
 };
 
+function closePopupByEsc (evt) {
+  if (evt.key === 'Escape') {
+    const popupOpen = document.querySelector('.popup_opened');
+    closePopup(popupOpen);
+  }
+}
+
+popups.forEach((popup) => {
+  popup.addEventListener("click", (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closePopup(popup)
+    }
+  }
+)}) 
+  
 //Закрытие поп_апа
 const closePopup = (popup) => {
   popup
   .classList
   .remove('popup_opened');
-  popup.removeEventListener('click', escapeClick, mouseClick);
+  popup.removeEventListener('keydown', closePopupByEsc);
 }
 
 //Открытие поп_апа с профилем
@@ -91,6 +97,7 @@ const closeCardPopup = () => {
 
 popupAddButtonElement.addEventListener('click', openCardPopup);
 
+
 cardFormElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const addNewCard = {
@@ -100,11 +107,20 @@ cardFormElement.addEventListener('submit', (evt) => {
   renderCardsElement(addNewCard);
   closeCardPopup();
   evt.target.reset();
-  popupButtonCardCreate.setAttribute('disabled', true);
-  popupButtonCardCreate.classList.add('popup__button_inactive')
+  disableSubmitButton(popupButtonCardCreate);
 });
 
- 
+
+function disableSubmitButton (popupButtonSubmit) {
+  popupButtonSubmit.disabled = true;
+  popupButtonSubmit.classList.add('popup__button_inactive');
+};
+
+function activeSubmitButton (popupButtonSubmit) {
+  popupButtonSubmit.disabled = false;
+  popupButtonSubmit.classList.remove('popup__button_inactive');
+};
+
 function createCard (addNewCard)  {
   const cardsElement = template
   .content

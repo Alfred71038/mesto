@@ -61,18 +61,7 @@ class FormValidator {
   enableValidation(validationConfig) {
     this._setEventListeners(validationConfig);
   }
-
-  disableSubmitButton (popupButtonSubmit) {
-    popupButtonSubmit.disabled = true;
-    popupButtonSubmit.classList.add('popup__button_inactive');
-  };
-  
-  activeSubmitButton (popupButtonSubmit) {
-    popupButtonSubmit.disabled = false;
-    popupButtonSubmit.classList.remove('popup__button_inactive');
-  };
 }
-
-
+    
 
 export default FormValidator

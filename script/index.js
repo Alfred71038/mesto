@@ -89,8 +89,6 @@ profileFormElement.addEventListener('submit', submitEditProfilePopup);
 
 //Открытие попапа с карточками
 const openCardPopup = () => {
-    popupCardTitle.value = '';
-    popupCardLink.value = '';
     openPopup(cardPopup);
 }
 
@@ -100,18 +98,6 @@ const closeCardPopup = () => {
 }
 
 popupAddButtonElement.addEventListener('click', openCardPopup);
-
-function disableSubmitButton (popupButtonSubmit) {
-  popupButtonSubmit.disabled = true;
-  popupButtonSubmit.classList.add('popup__button_inactive');
-};
-
-function activeSubmitButton (popupButtonSubmit) {
-  popupButtonSubmit.disabled = false;
-  popupButtonSubmit.classList.remove('popup__button_inactive');
-};
-
-
 
 //Карточки
 const initialCards = [
@@ -167,7 +153,6 @@ cardFormElement.addEventListener('submit', (evt) => {
   addNewCard(name, link);
   closeCardPopup();
   cardFormElement.reset();
-  disableSubmitButton(popupButtonCardCreate);
 });
 
 

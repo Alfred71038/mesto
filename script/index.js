@@ -59,7 +59,7 @@ const closePopup = (popup) => {
   popup
   .classList
   .remove('popup_opened');
-  popup.removeEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
 //Открытие поп_апа с профилем

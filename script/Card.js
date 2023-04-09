@@ -20,8 +20,8 @@ class Card {
   
 
   _setEventListeners() {
-    this._buttinLike = this._element.querySelector('.element__place-reaction')
-    this._buttinLike
+    this._buttonLike = this._element.querySelector('.element__place-reaction')
+    this._buttonLike
     .addEventListener('click', () => {
       this._reactionButton(); 
     })
@@ -39,7 +39,7 @@ class Card {
   }
 
   _reactionButton() {
-      this._buttinLike
+      this._buttonLike
       .classList
       .toggle('element__place-reaction_active');
     }

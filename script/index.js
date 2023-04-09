@@ -92,11 +92,6 @@ const openCardPopup = () => {
     openPopup(cardPopup);
 }
 
-//Закрытие попапа с карточками 
-const closeCardPopup = () => {
-    closePopup(cardPopup);
-}
-
 popupAddButtonElement.addEventListener('click', openCardPopup);
 
 //Карточки
@@ -151,28 +146,28 @@ cardFormElement.addEventListener('submit', (evt) => {
   const name = popupCardTitle.value;
   const link = popupCardLink.value
   addNewCard(name, link);
-  closeCardPopup();
+  closePopup(cardPopup);
   cardFormElement.reset();
+  formValidationCard.switchButton()
 });
 
+//Валидация форм  
+const validationList = ({ 
+  popupForm: '.popup__form', 
+  formInput: '.popup__input', 
+  popupInputTypeError: 'popup__form_input_type_error', 
+  popupSpanErrorActive: 'popup__form_input-error-active', 
+  popupButton: '.popup__button', 
+  popupButtonInactive: 'popup__button_inactive' 
+}); 
+ 
+const formValidationProfile = new FormValidator(validationList, profileFormElement); 
+formValidationProfile.enableValidation() 
+ 
+const formValidationCard = new FormValidator(validationList, cardFormElement); 
+formValidationCard.enableValidation() 
+ 
+ 
+export {openPopup}; 
 
-
-//Валидация форм 
-const validationList = ({
-  popupForm: '.popup__form',
-  formInput: '.popup__input',
-  popupInputTypeError: 'popup__form_input_type_error',
-  popupSpanErrorActive: 'popup__form_input-error-active',
-  popupButton: '.popup__button',
-  popupButtonInactive: 'popup__button_inactive'
-});
-
-const formValidationProfile = new FormValidator(validationList, profileFormElement);
-formValidationProfile.enableValidation()
-
-const formValidationCard = new FormValidator(validationList, cardFormElement);
-formValidationCard.enableValidation()
-
-
-export {openPopup};
 

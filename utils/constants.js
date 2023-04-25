@@ -23,4 +23,3 @@ export const popupSignature = popupZoomImage.querySelector('.popup__signature');
 
 export const popupCardTitle = cardPopup.querySelector('.popup__input_card-type-title');
 export const popupCardLink = cardPopup.querySelector('.popup__input_card-type-link');
-  

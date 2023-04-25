@@ -5,7 +5,7 @@ import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
 import UserInfo from './UserInfo.js';
 
-import { popupOpenButtonElement, profileFormElement,profileName, 
+import { popupOpenButtonElement, profileFormElement, profileName, 
   profileAboutMe, popupName, popupAboutMe, 
   popupAddButtonElement, cardFormElement, cardsContainer } 
 from '../utils/constants.js';
@@ -34,11 +34,12 @@ const itemsCard = new Section({
   items:initialCards,
   renderer:renderCard
 }, cardsContainer);
+
 itemsCard.renderItems();
 
 /***************************************************************************************** */
 
-const userInfo = new UserInfo({aboutMeSelector: profileAboutMe, nameSelector: profileName});
+const userInfo = new UserInfo({nameSelector: profileName, aboutMeSelector: profileAboutMe});
 
 function userPopupProfile() {
   const user = userInfo.getUserInfo()
@@ -48,12 +49,11 @@ function userPopupProfile() {
   openPopupProfile.open();  
 }
 
-function userPopupCard() {
-openPopupCard.open();
+function userPopupCard(item) {
+openPopupCard.open(item);
 }
 
-function handleFormSubmitProfile(evt, {name, about}) {
-  evt.preventDefault();
+function handleFormSubmitProfile({name, about}) {
   userInfo.setUserInfo(name, about);
 }
 

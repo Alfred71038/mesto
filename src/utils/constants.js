@@ -6,8 +6,9 @@ export const popupCloseButtonList = document.querySelectorAll('.popup__close-but
 export const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 export const profileFormElement = document.querySelector('#profile-form');
 export const profileElement = document.querySelector('.profile');
-export const profileName = profileElement.querySelector('.profile__name');
-export const profileAboutMe = profileElement.querySelector('.profile__about-me');
+export const profileName = document.querySelector('.profile__name');
+export const profileAboutMe = document.querySelector('.profile__about-me');
+
 
 export const popupName = profilePopup.querySelector('.popup__input_type_name');
 export const popupAboutMe = profilePopup.querySelector('.popup__input_type_about-me');

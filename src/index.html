@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
 <body class="body">
     <div class="page">
 
         <header class="header">
-            <img src="./images/logo.svg" alt="Логотип" class="logo">
+            <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="logo">
         </header>
 
         <main class="content">
 
             <section class="profile">
-                <img src="./images/profile__avatar.jpg" alt="Жа-Ив Кусто" class="profile__avatar">
+                <img src="<%=require('./images/profile__avatar.jpg')%>" alt="Жа-Ив Кусто" class="profile__avatar">
                 <div class="profile__content-column">
                     <div class="profile__content">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit-button" type="button"><img src="./images/pencil.svg" alt="карандаш" class="profile__edit-image"></button>
+                        <button class="profile__edit-button" type="button"><img src="<%=require('./images/pencil.svg')%>" alt="карандаш" class="profile__edit-image"></button>
                     </div>
                     <p class="profile__about-me">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button" type="button"><img src="./images/plus.svg" alt="плюс" class="profile__add-image"></button>
+                <button class="profile__add-button" type="button"><img src="<%=require('./images/plus.svg')%>" alt="плюс" class="profile__add-image"></button>
             </section>
 
             <section class="elements">
@@ -42,7 +41,7 @@
                     <button 
                         class="popup__close-button" 
                         type="button">
-                        <img src="./images/Close-Icon.svg" 
+                        <img src="<%=require('./images/Close-Icon.svg')%>" 
                         class="popup__button-image" 
                         alt="Крестик">
                     </button>
@@ -64,7 +63,7 @@
                           <input 
                           id="about-me-input"
                           type="text" 
-                          name="about-me" 
+                          name="about" 
                           placeholder="О себе" 
                           class="popup__input popup__input_type_about-me"
                           minlength="2"
@@ -85,7 +84,7 @@
                 <button 
                 class="popup__close-button" 
                 type="button">
-                <img src="./images/Close-Icon.svg" 
+                <img src="<%=require('./images/Close-Icon.svg')%>" 
                 class="popup__button-image" 
                 alt="Крестик">
                 </button>
@@ -95,9 +94,9 @@
                         <input 
                         id="title-input"
                         type="text" 
-                        name="title" 
+                        name="name" 
                         placeholder="Название" 
-                        class="popup__input popup__input_type_name"
+                        class="popup__input popup__input_card-type-title"
                         minlength="2"
                         maxlength="30"
                         required>
@@ -107,7 +106,7 @@
                         <input 
                         id="link-input"
                         type="url"
-                        name="cards-link" 
+                        name="link" 
                         placeholder="Ссылка на картинку" 
                         class="popup__input popup__input_type_about-me"
                         required>
@@ -125,7 +124,7 @@
                 <button 
                 class="popup__close-button" 
                 type="button">
-                <img src="./images/Close-Icon.svg" 
+                <img src="<%=require('./images/Close-Icon.svg')%>" 
                 class="popup__button-image" 
                 alt="Крестик">
                 </button>
@@ -136,13 +135,13 @@
     </div>
     <template id="elements-item-template">
         <li class="element">
-            <img class="element__image" alt="тут могла быть выша реклама" src="#">
+            <img class="element__image" alt="" src="#">
             <div class="element__place">
                 <h2 class="element__place-name"></h2>
                 <button 
                 class="element__place-reaction" 
                 type="button">
-                <img src="./images/Like.svg" alt="лайк">
+                <img src="<%=require('./images/Like.svg')%>" alt="лайк">
                 </button>
             </div>
             <button 
@@ -151,6 +150,5 @@
             </button>
         </li>
     </template>
-    <script type="module" src="./script/index.js"></script>
 </body>
 </html>

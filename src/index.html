@@ -16,6 +16,7 @@
 
             <section class="profile">
                 <img src="<%=require('./images/profile__avatar.jpg')%>" alt="Жа-Ив Кусто" class="profile__avatar">
+                <img src="<%=require('./images/Vector.svg')%>" alt="Большой карандаш" class="profile__avatar-edit">
                 <div class="profile__content-column">
                     <div class="profile__content">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -35,8 +36,9 @@
         <footer class="footer">
             <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
         </footer>
+
+        <!-- Попап профиля -->
         <section class="popup popup_profile" id="profile">
-            
                 <div class="popup__container">
                     <button 
                         class="popup__close-button" 
@@ -77,8 +79,9 @@
                       Сохранить</button>
                   </form>
                 </div>
-          
         </section>
+
+        <!-- Попап карточек -->
         <section class="popup popup_card" id="card">
             <div class="popup__container">
                 <button 
@@ -119,6 +122,8 @@
                 </form>
             </div>
         </section>
+
+        <!-- Попап открытия картинки -->
         <section class="popup popup_zoom-image" id="image">
             <div class="popup__container popup__container_image">
                 <button 
@@ -132,17 +137,70 @@
                 <p class="popup__signature"></p>
             </div>
         </section>
+
+        <!-- Новый попап с подтверждением -->
+        <section class="popup popup__confirm" id="confirm">
+            <div class="popup__container">
+                <button class="popup__close-button" 
+                type="button">
+                <img src="<%=require('./images/Close-Icon.svg')%>" 
+                class="popup__button-image" 
+                alt="Крестик">
+                </button>
+                <form class="popup__form popup__form-confrim" id="form-confirm" name="confirm" novalidate>
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <button 
+                    type="submit" 
+                    class="popup__button popup__button_confirm">
+                    Да</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Новый попап с редактором аватарки-->
+        <section class="popup popup_avatar" id="avatar">
+            <div class="popup__container">
+                <button class="popup__close-button" 
+                type="button">
+                <img src="<%=require('./images/Close-Icon.svg')%>" 
+                class="popup__button-image" 
+                alt="Крестик">
+                </button>
+                <form class="popup__form popup__form-avatar" id="form-avatar">
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <div class="popup__form-section popup__form-section_avatar">
+                        <input class="popup__input" 
+                            id="avatar-input"
+                        type="url"
+                        name="link"
+                        placeholder="Ссылка на картинку"
+                        required><span class="link-avatar-input-error popup__input-error"></span>
+                    </div>
+                    <button 
+                    type="submit" 
+                    class="popup__button popup__button_profile_submit">
+                    Сохранить</button>
+                </form>
+            </div>
+        </section>
     </div>
+
+    
+
+    <!-- template-->
     <template id="elements-item-template">
         <li class="element">
             <img class="element__image" alt="Фотография" src="#">
             <div class="element__place">
                 <h2 class="element__place-name"></h2>
-                <button 
-                class="element__place-reaction" 
-                type="button">
-                <img src="<%=require('./images/Like.svg')%>" alt="лайк">
-                </button>
+                <div>
+                    <button 
+                    class="element__place-reaction" 
+                    type="button">
+                    <img src="<%=require('./images/Like.svg')%>" alt="лайк">
+                    </button>
+                    <p class="element__place-count">0</p>
+                </div>
             </div>
             <button 
             class="element__delete-button" 

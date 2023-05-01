@@ -2,7 +2,12 @@
     display: flex;
     max-width: 880px;
     margin: 40px auto 51px auto;
+    position: relative;
 }
+
+.profile__avatar:hover {
+    opacity: .2;
+  }
 
 @media screen and (max-width: 900px) {
     .profile {

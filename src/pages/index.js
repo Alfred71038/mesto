@@ -171,6 +171,6 @@ openPopupProfile.setEventListeners();
 const openPopupCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
 openPopupCard.setEventListeners();
 
-const popupConfirm = new PopupWithConfirmation ({popupSelector: '.popup__confirm',});
+const popupConfirm = new PopupWithConfirmation ({popupSelector: '.popup_confirm',});
 popupConfirm.setEventListeners();
 

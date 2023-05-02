@@ -37,8 +37,9 @@ export default class Card {
     return cardElement;
   }
 
-  countLike(numberLike) {    
-    this._countLike.textContent = numberLike.likes.length;
+  countLike(data) {    
+    
+    this._countLike.textContent = data.likes.length;
   }
   
   generateCard() {

@@ -75,7 +75,7 @@ const handleDislikeCard = (card) => {
   api.deleteCard(card._cardId)
   .then((res) => {
     card.reactionButton();
-    card.countLike(res)
+    card.countLike(res);
   }).catch((error) => console.log(error))
 };
 

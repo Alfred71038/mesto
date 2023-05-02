@@ -119,6 +119,8 @@ const itemsCard = new Section({
 
 const userInfo = new UserInfo({nameSelector: '.profile__name', aboutMeSelector: '.profile__about-me', avatarSelector: '.profile__avatar'});
 
+
+
 const popupTypeCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
 popupTypeCard.setEventListeners();
 

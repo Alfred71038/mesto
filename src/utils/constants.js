@@ -3,7 +3,7 @@ export const cardPopup = document.querySelector('#card');
 export const popups = document.querySelectorAll('.popup');
 export const confirmPopup = document.querySelector('#confirm');
 export const avatarPopup = document.querySelector('#avatar')
-export const avatarFormElement = document.querySelector('#form-avatar')
+export const avatarFormElement = document.querySelector('#avatar-form')
 
 export const popupCloseButtonList = document.querySelectorAll('.popup__close-button');
 export const popupOpenButtonElement = document.querySelector('.profile__edit-button');
@@ -23,9 +23,13 @@ export const cardsContainer = document.querySelector('.cards');
 
 export const popupZoomImage = document.querySelector('.popup_zoom-image');
 export const popupButtonCardCreate = document.querySelector('.popup__button_card_create')
+export const popupButtonProfileSubmit = document.querySelector('.popup__button_profile_submit')
+export const popupButtonProfileAvatar = document.querySelector('.popup__button_profile_avatar')
 export const popupImage = popupZoomImage.querySelector('.popup__image');
 export const popupSignature = popupZoomImage.querySelector('.popup__signature');
 
 export const popupCardTitle = cardPopup.querySelector('.popup__input_card-type-title');
 export const popupCardLink = cardPopup.querySelector('.popup__input_card-type-link');
 
+export const popupButton = document.querySelector('.popup__button');
+export const countLike = document.querySelector('.element__place-count')

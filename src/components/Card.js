@@ -27,7 +27,6 @@ export default class Card {
     this._buttonLike = cardElement.querySelector('.element__place-reaction');
     this._buttonDelete = cardElement.querySelector('.element__delete-button');
     this._countLike = cardElement.querySelector('.element__place-count');
-    this._countLike.textContent = this._likes.length;
 
     if (
       this._likes.filter((like) => like._id === this._userId).length > 0
@@ -36,6 +35,10 @@ export default class Card {
     }
 
     return cardElement;
+  }
+
+  countLike(numberLike) {    
+    this._countLike.textContent = numberLike.likes.length;
   }
   
   generateCard() {

@@ -123,7 +123,38 @@
             </div>
         </section>
 
+                <!-- Новый попап с редактором аватарки--> 
+ 
+        <section class="popup popup_avatar" id="avatar">
+                    <div class="popup__container">
+                        <button 
+                        class="popup__close-button" 
+                        type="button">
+                        <img src="<%=require('./images/Close-Icon.svg')%>" 
+                        class="popup__button-image" 
+                        alt="Крестик">
+                        </button>
+                        <form class="popup__form" id="avatar-form" name="avatar-form" novalidate>
+                            <h2 class="popup__title">Обновить аватар</h2>
+                            <div class="popup__form-section popup__form-section_avatar">
+                                <input 
+                                    id="link-input"
+                                    type="url"
+                                    name="link" 
+                                    class="popup__input" 
+                                    placeholder="Ссылка на картинку"
+                                    required><span class="link-input-error popup__input-error"></span>
+                            </div>
+                            <button 
+                            type="submit" 
+                            class="popup__button popup__button_profile_avatar">
+                            Сохранить</button>
+                        </form>
+                    </div>
+        </section>
+
         <!-- Попап открытия картинки -->
+
         <section class="popup popup_zoom-image" id="image">
             <div class="popup__container popup__container_image">
                 <button 
@@ -139,6 +170,7 @@
         </section>
 
         <!-- Новый попап с подтверждением -->
+
         <section class="popup popup_confirm" id="confirm">
             <div class="popup__container">
                 <button class="popup__close-button" 
@@ -157,32 +189,8 @@
             </div>
         </section>
 
-        <!-- Новый попап с редактором аватарки-->
-        <section class="popup popup_avatar" id="avatar">
-            <div class="popup__container">
-                <button class="popup__close-button" 
-                type="button">
-                <img src="<%=require('./images/Close-Icon.svg')%>" 
-                class="popup__button-image" 
-                alt="Крестик">
-                </button>
-                <form class="popup__form popup__form-avatar" id="form-avatar">
-                    <h2 class="popup__title">Обновить аватар</h2>
-                    <div class="popup__form-section popup__form-section_avatar">
-                        <input class="popup__input" 
-                            id="avatar-input"
-                        type="url"
-                        name="link"
-                        placeholder="Ссылка на картинку"
-                        required><span class="link-avatar-input-error popup__input-error"></span>
-                    </div>
-                    <button 
-                    type="submit" 
-                    class="popup__button popup__button_profile_submit">
-                    Сохранить</button>
-                </form>
-            </div>
-        </section>
+       
+        
     </div>
 
     

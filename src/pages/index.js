@@ -14,8 +14,13 @@ import {
   profileFormElement, 
   popupName, 
   popupAboutMe, 
-  popupAddButtonElement, 
-  cardFormElement, 
+  popupAddButtonElement,
+  popupButtonCardCreate,
+  popupButtonProfileSubmit,
+  popupButtonProfileAvatar,
+  cardFormElement,
+  avatarFormElement, 
+  countLike,
   confirmPopup, 
   cardPopup, 
   profilePopup, 
@@ -32,7 +37,16 @@ import {validationList} from '../utils/validationList.js';
 
 let userId;
 
-api.getUserInfo()
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([res, card]) => {
+    userId = res._id;
+    userInfo.setUserInfo(res);
+    itemsCard.renderItems(card);
+  })
+  .catch((error) => console.log(error))
+
+
+/*api.getUserInfo()
 .then((res) => {
   console.log(res)
   userId = res._id;
@@ -44,7 +58,7 @@ api.getInitialCards()
   console.log(card)
   itemsCard.renderItems(card)
 })
-.catch((error) => console.log(error))
+.catch((error) => console.log(error))*/
 
 
 /**************************************************************************************** */
@@ -53,7 +67,7 @@ const handleLikeCard = (card) => {
   api.addLike(card._cardId)
   .then((res) => {
     card.reactionButton();
-    card._countLike.textContent = res.likes.length;
+    card.countLike(res);
   }).catch((error) => console.log(error))
 };
 
@@ -61,7 +75,7 @@ const handleDislikeCard = (card) => {
   api.deleteCard(card._cardId)
   .then((res) => {
     card.reactionButton();
-    card._countLike.textContent = res.likes.length;
+    card.countLike(res)
   }).catch((error) => console.log(error))
 };
 
@@ -105,56 +119,66 @@ const itemsCard = new Section({
 
 const userInfo = new UserInfo({nameSelector: '.profile__name', aboutMeSelector: '.profile__about-me', avatarSelector: '.profile__avatar'});
 
-function userPopupProfile() {
+function openPopupProfile() {
   const user = userInfo.getUserInfo()
   popupName.value = user.name;
   popupAboutMe.value = user.about;
 
-  openPopupProfile.open();  
+  popupTypeProfile.open();  
 }
 
-function userPopupCard(item) {
-  openPopupCard.open(item);
+function openPopupCard(item) {
+  popupTypeCard.open(item);
   formValidationCard.switchButton()
 }
 
-const openPopupAvatar = new PopupWithForm ('.popup_avatar', handleFromSubmitAvatar);
-openPopupAvatar.setEventListeners();
+const popupTypeAvatar = new PopupWithForm ('.popup_avatar', handleFromSubmitAvatar);
+popupTypeAvatar.setEventListeners();
 
-function userPopupAvatar() {
+function openPopupAvatar() {
   console.log("клик на аватар")
-  console.log(openPopupAvatar)
-  openPopupAvatar.open()
+  console.log(popupTypeAvatar)
+  popupTypeAvatar.open()
+  formValidationAvatar.switchButton()
 }
 
 function handleFormSubmitProfile(title, about) {  
-    renderLoading(true, popupButton);
+    renderLoading(true, popupButtonProfileSubmit);
     api.patchUserInfo(title, about).then((res) => { 
-    userInfo.setUserInfo(res) })
+    userInfo.setUserInfo(res);
+    popupTypeProfile.close() 
+  })
     .catch((error) => console.log(`Ошибка: ${error}`))
-    .finally(() => renderLoading(false, popupButton));
+    .finally(() => renderLoading(false, popupButtonProfileSubmit));
   }
 
-/*function handleFormSubmitCard(item) {
-    renderLoading(true, popupButton);
+const popupTypeCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
+popupTypeCard.setEventListeners();
+
+function handleFormSubmitCard(item) {
+    renderLoading(true, popupButtonCardCreate);
     api.createCard(item).then((res) => {
     renderCard(res);
-    cardPopup.close()})
+    popupTypeCard.close();
+  })
     .catch((error) => console.log(error))
-    .finally(() => renderLoading(false, popupButton));
-  }*/
+    .finally(() => renderLoading(false, popupButtonCardCreate));
+  }
+
 
 function handleFromSubmitAvatar(item) {
-    renderLoading(true, popupButton);
+    renderLoading(true, popupButtonProfileAvatar);
     api.patchUserAvatar(item).then((res) => {
-    userInfo.setUserInfo(res)})
+    userInfo.setUserInfo(res)
+    popupTypeAvatar.close();
+  })
     .catch((error) => console.log(`Ошибка: ${error}`))
-    .finally(() => renderLoading(false, popupButton));
+    .finally(() => renderLoading(false, popupButtonProfileAvatar));
 }
 
-popupOpenButtonElement.addEventListener('click', userPopupProfile);
-popupAddButtonElement.addEventListener('click', userPopupCard);
-profileButtonAvatar.addEventListener('click', userPopupAvatar)
+popupOpenButtonElement.addEventListener('click', openPopupProfile);
+popupAddButtonElement.addEventListener('click', openPopupCard);
+profileButtonAvatar.addEventListener('click', openPopupAvatar)
 
 /**************************************************************************************** */
 
@@ -163,15 +187,15 @@ formValidationProfile.enableValidation()
  
 const formValidationCard = new FormValidator(validationList, cardFormElement); 
 formValidationCard.enableValidation() 
+
+const formValidationAvatar = new FormValidator(validationList, avatarFormElement);
+formValidationAvatar.enableValidation();
  
 const  popupZoomWithImage = new PopupWithImage('.popup_zoom-image');
 popupZoomWithImage.setEventListeners();
 
-const openPopupProfile = new PopupWithForm ('.popup_profile', handleFormSubmitProfile);
-openPopupProfile.setEventListeners();
-
-const openPopupCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
-openPopupCard.setEventListeners();
+const popupTypeProfile = new PopupWithForm ('.popup_profile', handleFormSubmitProfile);
+popupTypeProfile.setEventListeners();
 
 const popupConfirm = new PopupWithConfirmation ({popupSelector: '.popup_confirm',});
 popupConfirm.setEventListeners();

@@ -119,6 +119,9 @@ const itemsCard = new Section({
 
 const userInfo = new UserInfo({nameSelector: '.profile__name', aboutMeSelector: '.profile__about-me', avatarSelector: '.profile__avatar'});
 
+const popupTypeCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
+popupTypeCard.setEventListeners();
+
 function openPopupProfile() {
   const user = userInfo.getUserInfo()
   popupName.value = user.name;
@@ -142,6 +145,9 @@ function openPopupAvatar() {
   formValidationAvatar.switchButton()
 }
 
+const popupTypeProfile = new PopupWithForm ('.popup_profile', handleFormSubmitProfile);
+popupTypeProfile.setEventListeners();
+
 function handleFormSubmitProfile(title, about) {  
     renderLoading(true, popupButtonProfileSubmit);
     api.patchUserInfo(title, about).then((res) => { 
@@ -152,8 +158,7 @@ function handleFormSubmitProfile(title, about) {
     .finally(() => renderLoading(false, popupButtonProfileSubmit));
   }
 
-const popupTypeCard = new PopupWithForm ('.popup_card', handleFormSubmitCard);
-popupTypeCard.setEventListeners();
+
 
 function handleFormSubmitCard(item) {
     renderLoading(true, popupButtonCardCreate);
@@ -164,6 +169,7 @@ function handleFormSubmitCard(item) {
     .catch((error) => console.log(error))
     .finally(() => renderLoading(false, popupButtonCardCreate));
   }
+
 
 
 function handleFromSubmitAvatar(item) {
@@ -194,8 +200,7 @@ formValidationAvatar.enableValidation();
 const  popupZoomWithImage = new PopupWithImage('.popup_zoom-image');
 popupZoomWithImage.setEventListeners();
 
-const popupTypeProfile = new PopupWithForm ('.popup_profile', handleFormSubmitProfile);
-popupTypeProfile.setEventListeners();
+
 
 const popupConfirm = new PopupWithConfirmation ({popupSelector: '.popup_confirm',});
 popupConfirm.setEventListeners();

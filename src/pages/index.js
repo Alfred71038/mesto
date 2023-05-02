@@ -20,7 +20,8 @@ import {
   cardPopup, 
   profilePopup, 
   profileButtonAvatar,
-  avatarPopup
+  avatarPopup,
+  popupButton
  } 
 from '../utils/constants.js';
 
@@ -67,14 +68,14 @@ const handleDislikeCard = (card) => {
 function handleCardDelete(card) {
   popupConfirm.open();
   popupConfirm.handleSubmit(() => {
-  renderLoading(true, confirmPopup.querySelector('.popup__button'))
+  renderLoading(true, popupButton)
   api.deleteCard(card._cardId)
   .then(() => {
     card.deleteCard();
     popupConfirm.close();
   })
   .catch((error) => console.log(error))
-  .finally(() => renderLoading(false, popupConfirm.querySelector('.popup__button')));
+  .finally(() => renderLoading(false, popupButton));
   })
 }
 
@@ -127,27 +128,28 @@ function userPopupAvatar() {
 }
 
 function handleFormSubmitProfile(title, about) {  
-    renderLoading(true, profilePopup.querySelector('.popup__button'));
+    renderLoading(true, popupButton);
     api.patchUserInfo(title, about).then((res) => { 
     userInfo.setUserInfo(res) })
     .catch((error) => console.log(`Ошибка: ${error}`))
-    .finally(() => renderLoading(false, profilePopup.querySelector('.popup__button')));
+    .finally(() => renderLoading(false, popupButton));
   }
 
-function handleFormSubmitCard(item) {
-    renderLoading(true, cardPopup.querySelector('.popup__button'));
+/*function handleFormSubmitCard(item) {
+    renderLoading(true, popupButton);
     api.createCard(item).then((res) => {
-    renderCard(res)})
+    renderCard(res);
+    cardPopup.close()})
     .catch((error) => console.log(error))
-    .finally(() => renderLoading(false, cardPopup.querySelector('.popup__button')));
-  }
+    .finally(() => renderLoading(false, popupButton));
+  }*/
 
 function handleFromSubmitAvatar(item) {
-    renderLoading(true, avatarPopup.querySelector('.popup__button'));
+    renderLoading(true, popupButton);
     api.patchUserAvatar(item).then((res) => {
     userInfo.setUserInfo(res)})
     .catch((error) => console.log(`Ошибка: ${error}`))
-    .finally(() => renderLoading(false, avatarPopup.querySelector('.popup__button')));
+    .finally(() => renderLoading(false, popupButton));
 }
 
 popupOpenButtonElement.addEventListener('click', userPopupProfile);
@@ -173,4 +175,3 @@ openPopupCard.setEventListeners();
 
 const popupConfirm = new PopupWithConfirmation ({popupSelector: '.popup_confirm',});
 popupConfirm.setEventListeners();
-

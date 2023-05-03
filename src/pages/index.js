@@ -41,7 +41,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([res, card]) => {
     userId = res._id;
     userInfo.setUserInfo(res);
-    itemsCard.renderItems(card);
+    itemsCard.addCards(card);
   })
   .catch((error) => console.log(error))
 
@@ -72,7 +72,7 @@ const handleLikeCard = (card) => {
 };
 
 const handleDislikeCard = (card) => {
-  api.deleteCard(card._cardId)
+  api.deleteLike(card._cardId)
   .then((res) => {
     card.reactionButton();
     card.countLike(res);
@@ -134,6 +134,7 @@ function openPopupProfile() {
 
 function openPopupCard(item) {
   popupTypeCard.open(item);
+  
   formValidationCard.switchButton()
 }
 

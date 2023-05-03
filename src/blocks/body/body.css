@@ -1,6 +1,11 @@
 .body {
     background: #000000;
-    max-width: 1280px;
-    min-width: 321px;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+    .body {
+        margin: 0 auto;
+        max-width: 320px;
+    }
 }

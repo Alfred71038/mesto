@@ -41,7 +41,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([res, card]) => {
     userId = res._id;
     userInfo.setUserInfo(res);
-    itemsCard.addCards(card);
+    itemsCard.addCards(card.reverse());
   })
   .catch((error) => console.log(error))
 

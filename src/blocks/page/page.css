@@ -3,10 +3,12 @@
     min-width: 321px;
     margin: 0 auto;
     font-family: 'Inter', Arial, sans-serif;
+    display: block;
 }
 
 @media screen and (max-width: 900px) {
     .page {
         max-width: 320px;
+        margin: 0 auto;
     }
 }

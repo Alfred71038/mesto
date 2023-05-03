@@ -88,8 +88,6 @@ export default class Card {
       this._element = null
     }
     
-    
-
     _isOwner() {
       if (this._userId !== this._ownerId) {
         this._buttonDelete.remove();

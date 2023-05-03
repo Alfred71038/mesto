@@ -51,6 +51,7 @@ export default class Card {
     this._element.querySelector('.element__place-name').textContent = this._name;
     this._elementImage.src = this._link;
     this._elementImage.alt = this._name;
+    this._countLike.textContent = this._likes.length;
 
     return this._element;
     }
